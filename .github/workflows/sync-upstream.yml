@@ -1,0 +1,67 @@
+name: Review upstream drift
+
+on:
+  schedule:
+    - cron: "11 8 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sync-upstream
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v6
+        with:
+          fetch-depth: 0
+      - name: Create upstream subtree branch
+        id: split
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "elevenid-upstream-sync[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote add upstream https://github.com/spruceid/ssi.git
+          git fetch --prune upstream main
+          split_commit="$(git subtree split --prefix=crates/claims/crates/jwt upstream/main)"
+          git switch -C automation/sync-upstream origin/main
+          if git merge-base --is-ancestor "$split_commit" HEAD; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if ! git merge --no-edit "$split_commit"; then
+            git merge --abort
+            echo "conflict=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git push --force-with-lease origin automation/sync-upstream
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Report conflict
+        if: steps.split.outputs.conflict == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create upstream-sync --color 1d76db --description "Automated upstream synchronization" --force
+          issue="$(gh issue list --state open --search 'Upstream synchronization conflict in:title' --json url --jq '.[0].url')"
+          if [ -z "$issue" ]; then
+            gh issue create --title "Upstream synchronization conflict" --label upstream-sync --body "The latest spruceid/ssi ssi-jwt subtree conflicts with the ElevenID security patch. Resolve and rerun the complete fork suite manually."
+          else
+            gh issue comment "$issue" --body "The conflict remains; see $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          fi
+          exit 1
+      - name: Create or refresh reviewed sync pull request
+        if: steps.split.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create upstream-sync --color 1d76db --description "Automated upstream synchronization" --force
+          gh pr create --base main --head automation/sync-upstream --title "chore: review upstream ssi-jwt" --label upstream-sync --body "History-preserving subtree update from spruceid/ssi. This never merges automatically and must retain the security delta and pass all checks." || gh pr edit automation/sync-upstream --title "chore: review upstream ssi-jwt" --body "History-preserving subtree update from spruceid/ssi. This never merges automatically and must retain the security delta and pass all checks."
