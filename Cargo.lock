@@ -2200,7 +2200,7 @@ dependencies = [
  "ssi-crypto",
  "ssi-jwk",
  "ssi-jws",
- "thiserror 1.0.69",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
