@@ -1,0 +1,14 @@
+version: 1
+dependencies:
+  - package: ssi-jwt
+    ecosystem: rust
+    owner: ElevenID
+    upstream: https://github.com/spruceid/ssi/tree/main/crates/claims/crates/jwt
+    current: 0.6.0-security-fork
+    target: upstream-release
+    status: temporary-exception
+    decision: fork
+    advisories: [GHSA-7gcf-g7xr-8hxj]
+    tracking-issue: https://github.com/ElevenID/marty-core/issues/26
+    review-after: 2026-08-17
+    rationale: The published crate retains an unused vulnerable serde_with dependency; the one-line removal is pending upstream.
