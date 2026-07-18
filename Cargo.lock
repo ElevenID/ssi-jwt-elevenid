@@ -1041,12 +1041,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "iref"
+version = "4.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f75febf8734c32462645decf29941a2c5b39b56f66f2f46313e3e8a4669ab474"
+dependencies = [
+ "pct-str 3.0.1",
+ "serde",
+ "smallvec",
+ "static-automata",
+ "str-newtype",
+ "thiserror 2.0.18",
+]
+
+[[package]]
 name = "iref-core"
 version = "3.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b10559a0d518effd4f2cee107f40f83acf8583dcd3e6760b9b60293b0d2c2a70"
 dependencies = [
- "pct-str",
+ "pct-str 2.0.0",
  "serde",
  "smallvec",
  "static-regular-grammar",
@@ -1078,7 +1092,7 @@ checksum = "c3f0afe72eef988fd8fc4341b8c8b25c00820085eb32d3e6d8db1d619e34ecbe"
 dependencies = [
  "contextual",
  "futures",
- "iref",
+ "iref 3.2.2",
  "json-ld-compaction",
  "json-ld-context-processing",
  "json-ld-core",
@@ -1101,7 +1115,7 @@ dependencies = [
  "educe 0.4.23",
  "futures",
  "indexmap 2.14.0",
- "iref",
+ "iref 3.2.2",
  "json-ld-context-processing",
  "json-ld-core",
  "json-ld-expansion",
@@ -1121,7 +1135,7 @@ checksum = "794733ae1552eb7252972da511dfe1c65ec793e21fd025f732534e994d0abe93"
 dependencies = [
  "contextual",
  "futures",
- "iref",
+ "iref 3.2.2",
  "json-ld-core",
  "json-ld-syntax",
  "mown",
@@ -1140,7 +1154,7 @@ dependencies = [
  "futures",
  "hashbrown 0.13.2",
  "indexmap 2.14.0",
- "iref",
+ "iref 3.2.2",
  "json-ld-syntax",
  "json-syntax",
  "langtag",
@@ -1168,7 +1182,7 @@ dependencies = [
  "educe 0.4.23",
  "futures",
  "indexmap 2.14.0",
- "iref",
+ "iref 3.2.2",
  "json-ld-context-processing",
  "json-ld-core",
  "json-ld-syntax",
@@ -1186,7 +1200,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5ebec38a2fe2ce7dac0a7d341734a526d52c7902e9e37e6904a5eae647f09234"
 dependencies = [
  "indexmap 2.14.0",
- "iref",
+ "iref 3.2.2",
  "json-ld-core",
  "json-syntax",
  "linked-data",
@@ -1206,7 +1220,7 @@ dependencies = [
  "educe 0.4.23",
  "hashbrown 0.13.2",
  "indexmap 2.14.0",
- "iref",
+ "iref 3.2.2",
  "json-syntax",
  "langtag",
  "locspan",
@@ -1245,7 +1259,7 @@ dependencies = [
  "serde",
  "smallstr",
  "smallvec",
- "utf8-decode",
+ "utf8-decode 1.0.1",
 ]
 
 [[package]]
@@ -1363,7 +1377,7 @@ checksum = "04fd672ff31f4a6007acbdd33e1b65e1144081ec09b4189b3d20da3997603e90"
 dependencies = [
  "educe 0.4.23",
  "im",
- "iref",
+ "iref 3.2.2",
  "json-syntax",
  "linked-data-derive",
  "rdf-types",
@@ -1379,7 +1393,7 @@ version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "887a1903665b47c2dcff59682d8de1be46813819ae0337d8eaa885035762fbee"
 dependencies = [
- "iref",
+ "iref 3.2.2",
  "proc-macro-error",
  "proc-macro2",
  "quote",
@@ -1589,7 +1603,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bf1bdcc492c285a50bed60860dfa00b50baf1f60c73c7d6b435b01a2a11fd6ff"
 dependencies = [
  "thiserror 1.0.69",
- "utf8-decode",
+ "utf8-decode 1.0.1",
+]
+
+[[package]]
+name = "pct-str"
+version = "3.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "756dc82399e1ef9b37bd698266e4b7fed5f3d3cccb09fbc6b602086c9077e4ad"
+dependencies = [
+ "utf8-decode 2.0.0",
 ]
 
 [[package]]
@@ -1815,7 +1838,7 @@ dependencies = [
  "contextual",
  "educe 0.5.11",
  "indexmap 2.14.0",
- "iref",
+ "iref 3.2.2",
  "langtag",
  "raw-btree",
  "replace_with",
@@ -2082,7 +2105,7 @@ dependencies = [
  "bs58",
  "digest 0.9.0",
  "hex",
- "iref",
+ "iref 3.2.2",
  "pin-project",
  "rand",
  "serde",
@@ -2100,7 +2123,7 @@ checksum = "b9bd7124d707688e6f5b0f42537978b461d0f8871a7e9a703a1a6ea378b6ddbe"
 dependencies = [
  "hex",
  "indexmap 2.14.0",
- "iref",
+ "iref 3.2.2",
  "json-syntax",
  "keccak-hash",
  "linked-data",
@@ -2118,7 +2141,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5980ec32521fbbb879c5ad90fc62f85d39a8b3b5d19ce3829250d515f7484aa5"
 dependencies = [
  "combination",
- "iref",
+ "iref 3.2.2",
  "json-ld",
  "json-syntax",
  "lazy_static",
@@ -2168,7 +2191,7 @@ dependencies = [
  "blake2",
  "clear_on_drop",
  "hex",
- "iref",
+ "iref 3.2.2",
  "linked-data",
  "p256",
  "serde",
@@ -2188,7 +2211,7 @@ dependencies = [
  "async-trait",
  "chrono",
  "hashbrown 0.14.5",
- "iref",
+ "iref 4.2.0",
  "json-syntax",
  "ordered-float 4.6.0",
  "serde",
@@ -2221,11 +2244,33 @@ checksum = "c74d0aaccc80259913b4f2d456f2150ab2e8a4e8daf3b8edeaf527bb978e710b"
 dependencies = [
  "combination",
  "indexmap 2.14.0",
- "iref",
+ "iref 3.2.2",
  "linked-data",
  "rdf-types",
  "serde",
  "ssi-crypto",
+]
+
+[[package]]
+name = "static-automata"
+version = "1.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "24aafe52c9851a4ac4a9746224300d2e0c2a26d2da510ce36bd4fbe5aed56579"
+dependencies = [
+ "static-automata-macros",
+]
+
+[[package]]
+name = "static-automata-macros"
+version = "1.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e36fcb2913af3b8d092099595dbb13c750474f486acc83c9cf058971ceae3c74"
+dependencies = [
+ "proc-macro-error",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.119",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
@@ -2234,7 +2279,7 @@ version = "3.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3cc4068497ae43896d41174586dcdc2153a1af2c82856fb308bfaaddc28e5549"
 dependencies = [
- "iref",
+ "iref 3.2.2",
  "quote",
  "syn 2.0.119",
 ]
@@ -2264,6 +2309,28 @@ name = "static_assertions"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
+
+[[package]]
+name = "str-newtype"
+version = "3.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8ec8a1c581463debce258b574c39adb6a5f18cfd527ec81bceaba5c11b29ebf9"
+dependencies = [
+ "str-newtype-derive",
+]
+
+[[package]]
+name = "str-newtype-derive"
+version = "3.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c4735bf98408e5d87ccfa423e4a23c18a72a9128f8bee1f3b691e91b571c9c91"
+dependencies = [
+ "proc-macro-error",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.119",
+ "thiserror 1.0.69",
+]
 
 [[package]]
 name = "subtle"
@@ -2377,6 +2444,12 @@ name = "utf8-decode"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ca61eb27fa339aa08826a29f03e87b99b4d8f0fc2255306fd266bb1b6a9de498"
+
+[[package]]
+name = "utf8-decode"
+version = "2.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7932c10aa1600e9ddee027024aa9c0d397a103478253bf3fd6cea6dd03161b8a"
 
 [[package]]
 name = "value-bag"
@@ -2526,7 +2599,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c5bf1ac247150da9bff673820d7dcc22bca6ab621b4ee4f76650b581aff47580"
 dependencies = [
  "chrono",
- "iref",
+ "iref 3.2.2",
  "lazy_static",
  "num-bigint",
  "num-rational",
