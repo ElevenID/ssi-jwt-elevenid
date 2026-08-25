@@ -10,5 +10,5 @@ dependencies:
     decision: fork
     advisories: [GHSA-7gcf-g7xr-8hxj]
     tracking-issue: https://github.com/ElevenID/marty-core/issues/26
-    review-after: 2026-08-17
+    review-after: 2026-09-20
     rationale: The published crate retains an unused vulnerable serde_with dependency; the one-line removal is pending upstream.
