@@ -1043,9 +1043,9 @@ dependencies = [
 
 [[package]]
 name = "iref"
-version = "4.2.0"
+version = "5.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f75febf8734c32462645decf29941a2c5b39b56f66f2f46313e3e8a4669ab474"
+checksum = "f5a8605cfdbdfceeeb73b7fd7f868c775ad634751aa3bdac742faeb9a83d7ba7"
 dependencies = [
  "pct-str 3.0.1",
  "serde",
@@ -2212,7 +2212,7 @@ dependencies = [
  "async-trait",
  "chrono",
  "hashbrown 0.17.1",
- "iref 4.2.0",
+ "iref 5.0.0",
  "json-syntax",
  "ordered-float 5.3.0",
  "serde",
@@ -2254,18 +2254,18 @@ dependencies = [
 
 [[package]]
 name = "static-automata"
-version = "1.0.2"
+version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "24aafe52c9851a4ac4a9746224300d2e0c2a26d2da510ce36bd4fbe5aed56579"
+checksum = "ee5c486951167e860ee5c58f6ea5eb2539b25462e4f3e93e710f2f9519211477"
 dependencies = [
  "static-automata-macros",
 ]
 
 [[package]]
 name = "static-automata-macros"
-version = "1.0.2"
+version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e36fcb2913af3b8d092099595dbb13c750474f486acc83c9cf058971ceae3c74"
+checksum = "0b7777c1c80c6e706e66043b9475739afef00a8a3cadbe703f8fc4ae3c4e091a"
 dependencies = [
  "proc-macro-error",
  "proc-macro2",
