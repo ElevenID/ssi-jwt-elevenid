@@ -2,6 +2,7 @@
 name = "ssi-jwt"
 version = "0.6.0"
 edition = "2021"
+rust-version = "1.96"
 authors = ["Spruce Systems, Inc."]
 license = "Apache-2.0"
 description = "Implementation of JWT for the ssi library."
@@ -13,13 +14,13 @@ thiserror = "2.0"
 async-trait = "0.1.68"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-json-syntax = { version = "0.12.5", features = ["serde"] }
+json-syntax = { version = "0.13.1", features = ["serde"] }
 ssi-core = { version = "0.3.0", default-features = false }
 ssi-crypto = { version = "0.2.1", default-features = false }
 ssi-jwk = { version = "0.4.0", default-features = false }
 ssi-jws = { version = "0.5.0", default-features = false }
 ssi-claims-core = { version = "0.2.0", default-features = false }
-iref = { version = "4.2.0", features = ["serde"] }
+iref = { version = "5.0.0", features = ["serde"] }
 hashbrown = "0.17.1"
 slab = "0.4.9"
 ordered-float = { version = "5.3.0", features = ["serde"] }

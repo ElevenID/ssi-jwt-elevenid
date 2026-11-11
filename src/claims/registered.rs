@@ -409,9 +409,9 @@ registered_claims! {
 
     "nonce": Nonce(String),
 
-    "vc": VerifiableCredential(json_syntax::Value),
+    "vc": VerifiableCredential(json_syntax::JsonValue),
 
-    "vp": VerifiablePresentation(json_syntax::Value)
+    "vp": VerifiablePresentation(json_syntax::JsonValue)
 }
 
 pub enum JwtClaimValidationFailed {
